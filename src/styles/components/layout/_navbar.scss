@@ -1,0 +1,24 @@
+.navbar {
+  height: 50px;
+  margin: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  background-color: rgb(220, 0, 50);
+  & > div {
+    height: fit-content;
+    margin: auto 0.5rem;
+    color: white;
+    font-weight: 500;
+  }
+  &__left {
+    font-size: 1.5rem;
+  }
+  &__center {
+    text-align: center;
+    font-size: 2rem;
+  }
+  &__right {
+    font-size: 1rem;
+    text-align: right;
+  }
+}

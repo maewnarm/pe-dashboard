@@ -1,0 +1,14 @@
+// abstracts
+@import "abstracts/variables";
+
+// base
+@import "base/common";
+
+// components
+@import "components/components";
+
+// pages
+@import "pages/main";
+
+// dependencies
+@import "antd/dist/antd.css"

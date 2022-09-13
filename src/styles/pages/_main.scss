@@ -1,0 +1,22 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-1);
+  justify-content: center;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 0 auto;
+  gap: 3rem;
+  a {
+    font-size: 3rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--font-1);
+  }
+}
