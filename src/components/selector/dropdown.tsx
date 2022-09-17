@@ -5,11 +5,12 @@ const { Option } = Select;
 interface SelectorProps {
   placeholder: string;
   options: { value: string; text: string }[];
+  popupClassName?: string;
   set: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const DropdownSelector: React.FC<SelectorProps> = (props) => {
-  const { placeholder, options, set } = props;
+  const { placeholder, options, popupClassName, set } = props;
   return (
     <div className="selector-product">
       <Select
@@ -18,6 +19,7 @@ const DropdownSelector: React.FC<SelectorProps> = (props) => {
         optionFilterProp="children"
         onChange={(v) => set(v)}
         // onSearch={onSearch}
+        popupClassName={popupClassName}
         filterOption={(input, option) =>
           (option!.children as unknown as string)
             .toLowerCase()

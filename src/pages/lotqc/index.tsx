@@ -8,7 +8,7 @@ const defaultLotQcContext = {
   month: "",
 };
 
-const LotQCContext = createContext(defaultLotQcContext);
+export const LotQCContext = createContext(defaultLotQcContext);
 
 const LotQualityCheck = () => {
   const [productList, setProductList] = useState<OptionType[]>([]);
@@ -24,6 +24,7 @@ const LotQualityCheck = () => {
     }),
     [product, line, month]
   );
+  
   async function getProductList() {
     await fetch(`/api/json/get?filePath=json_product.json`).then(
       async (res) => {
@@ -32,9 +33,9 @@ const LotQualityCheck = () => {
       }
     );
   }
+
   useEffect(() => {
     // get product list
-
     getProductList();
   }, []);
 

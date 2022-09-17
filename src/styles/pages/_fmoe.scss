@@ -1,0 +1,57 @@
+.fmoe {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &__selector {
+    width: 100%;
+    .ant-select {
+      font-size: 2rem;
+      &-selector {
+        display: block;
+        height: fit-content !important;
+      }
+    }
+    &-dropdown {
+      .ant-select-item {
+        &-option-content {
+          line-height: normal;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    height: 100%;
+  }
+  &__amount {
+    height: 100%;
+    &__overall {
+      height: 60%;
+      display: flex;
+      &__sum {
+        height: 100%;
+        width: 60%;
+      }
+      &__data {
+        height: 100%;
+        width: 40%;
+      }
+    }
+    &__history {
+      height: 40%;
+      background-color: lightblue;
+    }
+  }
+  &__indicator {
+    height: 100%;
+    &__line {
+      height: 60%;
+    }
+    &__chart {
+      height: 40%;
+    }
+  }
+}

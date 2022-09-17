@@ -1,10 +1,17 @@
+import { ArrowLeftOutlined } from "@ant-design/icons";
+import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar__left">
-        <p>Logo</p>
+        <Link href="/">
+          <a>
+            <ArrowLeftOutlined />
+            Home
+          </a>
+        </Link>
       </div>
       <div className="navbar__center">
         <p>DX Dashboard</p>

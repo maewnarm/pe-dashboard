@@ -19,7 +19,7 @@ const Home: NextPage = () => {
             DX Lot Quality Check
           </a>
         </Link>
-        <Link href="/5m1e">5M1E Report System</Link>
+        <Link href="/fmoe">5M1E Report System</Link>
       </div>
     </div>
   );
