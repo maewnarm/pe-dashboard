@@ -3,34 +3,16 @@ import { OverallLineDataType } from "@/types/fmoe";
 import { Chart } from "@antv/g2";
 import React, { useContext, useEffect, useState } from "react";
 
-const demoChartData = [
-  { date: "01-09-2022", line: "Line 1", value: 3 },
-  { date: "02-09-2022", line: "Line 1", value: 5 },
-  { date: "03-09-2022", line: "Line 1", value: 1 },
-  { date: "04-09-2022", line: "Line 1", value: 3 },
-  { date: "05-09-2022", line: "Line 1", value: 0 },
-  { date: "01-09-2022", line: "Line 2", value: 6 },
-  { date: "02-09-2022", line: "Line 2", value: 3 },
-  { date: "03-09-2022", line: "Line 2", value: 7 },
-  { date: "04-09-2022", line: "Line 2", value: 0 },
-  { date: "05-09-2022", line: "Line 2", value: 3 },
-  { date: "01-09-2022", line: "Line 3", value: 1 },
-  { date: "02-09-2022", line: "Line 3", value: 2 },
-  { date: "03-09-2022", line: "Line 3", value: 6 },
-  { date: "04-09-2022", line: "Line 3", value: 3 },
-  { date: "05-09-2022", line: "Line 3", value: 6 },
-];
-
 const HistoryLine = () => {
-  const { product, month } = useContext(FmoeContext);
+  const { product, month, historyLineData } = useContext(FmoeContext);
   const [chart, setChart] = useState<Chart>();
-  const [chartData, setChartData] = useState<OverallLineDataType[]>([]);
 
   const createChart = () => {
     const c = new Chart({
       container: "history-linechart",
       autoFit: true,
-      height: 400,
+      height: 380,
+      padding: [60, 10, 60, 50],
     });
 
     setChart(c);
@@ -42,9 +24,45 @@ const HistoryLine = () => {
     chart.scale("value", {
       nice: true,
     });
+    chart.axis("date", {
+      label: {
+        style: {
+          fontSize: 16,
+        },
+      },
+    });
+    chart.axis("value", {
+      label: {
+        style: {
+          fontSize: 20,
+        },
+      },
+    });
+    chart.legend({
+      itemName: {
+        style: {
+          fontSize: 20,
+        },
+      },
+    });
     chart.tooltip({
-      shared: true,
       showMarkers: false,
+      shared: true,
+      customItems: (items) =>
+        items.map((item) => ({
+          ...item,
+          value: `${item.value} items`,
+        })),
+      title: (title) => `Date : ${title}`,
+      domStyles: {
+        "g2-tooltip": {
+          fontSize: "16px",
+        },
+        "g2-tooltip-title": {
+          fontSize: "20px",
+          fontWeight: 700,
+        },
+      },
     });
     chart.interval().position("date*value").color("line").adjust("stack");
     chart.interaction("active-region");
@@ -59,25 +77,22 @@ const HistoryLine = () => {
   }, []);
 
   useEffect(() => {
-    addChartProps()
-  },[chart])
+    addChartProps();
+  }, [chart]);
 
   useEffect(() => {
     if (!chart) return;
 
-    chart.changeData(chartData);
-  }, [chartData]);
+    chart.changeData(historyLineData);
+  }, [historyLineData]);
 
   return (
     <div className="history-line">
-      <div className="history-line__chart">
-        <button
-          onClick={() => setChartData(demoChartData)}
-          style={{ position: "absolute", zIndex: 2 }}
-        >
-          set
-        </button>
-        <div id="history-linechart" />
+      <div className="history-line__wrapper">
+        <p>History total by Line</p>
+        <div className="history-line__chart">
+          <div id="history-linechart" />
+        </div>
       </div>
     </div>
   );

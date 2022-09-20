@@ -1,6 +1,18 @@
 {
   "alt": [
     { "text": "Alt. Assy 2nd line", "value": "alt-assy-2" },
-    { "text": "Alt. Assy 3rd line", "value": "alt-assy-3" }
+    { "text": "Alt. Assy 3rd line", "value": "alt-assy-3" },
+    { "text": "Stator assy 1st line", "value": "alt-stator-1" },
+    { "text": "Stator assy 2nd line", "value": "alt-stator-2" },
+    { "text": "Stator assy 3rd line", "value": "alt-stator-3" },
+    { "text": "Stator assy 4th line", "value": "alt-stator-4" },
+    { "text": "Rotor assy 2nd line", "value": "alt-rotor-2" },
+    { "text": "Rotor assy 3rd line", "value": "alt-rotor-3" },
+    { "text": "Slip ring 1st line", "value": "alt-slipring-1" },
+    { "text": "Slip ring 2nd line", "value": "alt-slipring-2" },
+    { "text": "Rectifier assy 1st line", "value": "alt-rectifier-1" },
+    { "text": "Rectifier assy 2nd line", "value": "alt-rectifier-2" },
+    { "text": "Frame drive", "value": "alt-framedr-1" },
+    { "text": "Frame rear", "value": "alt-framerr-1" }
   ]
 }

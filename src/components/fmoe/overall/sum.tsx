@@ -1,42 +1,27 @@
 import { FmoeContext } from "@/pages/fmoe";
 import {
-  fmoeCategory,
-  fmoeCategoryColor,
-  fmoeStatus,
-  fmoeStatusColor,
-  InnerChartDaTaType,
-  OverallSumDataType,
+  OverallSumInnerChartDaTaType,
+  OverallSumOuterChartDataType,
+  OverallSumPercentDataType,
 } from "@/types/fmoe";
 import { Chart, View } from "@antv/g2";
+import { LegendItem } from "@antv/g2/lib/interface";
 import { isArray } from "@antv/util";
 import React, { useState, useEffect, useContext } from "react";
-
-const demodata = [
-  { status: "Done", category: "Man", percent: 10 },
-  { status: "Done", category: "Machine", percent: 30 },
-  { status: "Done", category: "Method", percent: 31 },
-  { status: "Done", category: "Material", percent: 10 },
-  { status: "Done", category: "Measurement", percent: 5 },
-  { status: "Done", category: "Environment", percent: 5 },
-  { status: "In progress", category: "Man", percent: 4 },
-  { status: "In progress", category: "Machine", percent: 3 },
-  { status: "In progress", category: "Method", percent: 0 },
-  { status: "In progress", category: "Material", percent: 0 },
-  { status: "In progress", category: "Measurement", percent: 1 },
-  { status: "In progress", category: "Environment", percent: 1 },
-];
+import { fmoeCatgory, fmoeStatus } from "statics/fmoe/category";
+import { fmoeCategoryColor, fmoeStatusColor } from "statics/fmoe/color";
 
 const OverallSum = () => {
-  const { product, month } = useContext(FmoeContext);
+  const { product, month, overallSumPercentData } = useContext(FmoeContext);
   const [chart, setChart] = useState<Chart>();
   const [outerChart, setOuterChart] = useState<View>();
-  const [chartData, setChartData] = useState<OverallSumDataType[]>([]);
 
   const createChart = () => {
     const c = new Chart({
       container: "overall-sumchart",
       autoFit: true,
-      height: 500,
+      width: 500,
+      padding: [0, 0, 0, 0],
     });
 
     setChart(c);
@@ -44,11 +29,30 @@ const OverallSum = () => {
 
   const addchartProps = () => {
     if (!chart) return;
-    console.log("add chart prop");
 
-    // chart.data(chartData);
     // inner chart
-    chart.legend(false);
+    chart.legend({
+      position: "bottom-right",
+      custom: true,
+      flipPage: false,
+      items: Object.entries(fmoeStatusColor).map(
+        ([status, color]) =>
+          ({
+            name: status,
+            id: status,
+            value: "status",
+            marker: {
+              symbol: "circle",
+              style: { r: 4, fill: color },
+            },
+          } as LegendItem)
+      ),
+      itemName: {
+        style: {
+          fontSize: 20,
+        },
+      },
+    });
     chart.coordinate("theta", {
       radius: 0.4,
       innerRadius: 0.3,
@@ -62,6 +66,21 @@ const OverallSum = () => {
         }
         // outer, category area
         return datum.status;
+      },
+      customItems: (items) =>
+        items.map((item) => ({
+          ...item,
+          name: item.name.split("-")[0],
+          value: `${item.value} items`,
+        })),
+      domStyles: {
+        "g2-tooltip": {
+          fontSize: "16px",
+        },
+        "g2-tooltip-title": {
+          fontSize: "20px",
+          fontWeight: 700,
+        },
       },
     });
     chart
@@ -87,8 +106,8 @@ const OverallSum = () => {
         style: {
           fontSize: 18,
           fill: "#2C3333",
-          // shadowBlur: 2,
-          // shadowColor: "rgba(0,0,0,0.6)",
+          shadowBlur: 2,
+          shadowColor: "rgba(0,0,0,0.6)",
         },
       });
 
@@ -99,6 +118,29 @@ const OverallSum = () => {
     outerView.coordinate("theta", {
       innerRadius: 0.4 / 0.7,
       radius: 0.7,
+    });
+    outerView.legend({
+      position: "bottom-right",
+      custom: true,
+      flipPage: false,
+      items: Object.entries(fmoeCategoryColor).map(
+        ([category, color]) =>
+          ({
+            name: category,
+            id: category,
+            value: "category",
+            marker: {
+              symbol: "circle",
+              style: { r: 4, fill: color },
+            },
+          } as LegendItem)
+      ),
+
+      itemName: {
+        style: {
+          fontSize: 20,
+        },
+      },
     });
     outerView
       .interval()
@@ -152,42 +194,40 @@ const OverallSum = () => {
     if (!chart || !outerChart) return;
 
     // change inner data
-    const innerData: InnerChartDaTaType[] = fmoeStatus.map((status) => ({
-      status: status,
-      percent: chartData
-        .filter((data) => data.status === status)
-        .reduce((sum, data) => sum + data.percent, 0),
-    }));
+    const innerData: OverallSumInnerChartDaTaType[] = fmoeStatus.map(
+      (status) => ({
+        status: status,
+        percent: overallSumPercentData
+          .filter((data) => data.status === status)
+          .reduce((sum, data) => sum + data.percent, 0),
+      })
+    );
     chart.changeData(innerData);
 
     // change outer data
-    let outerData: OverallSumDataType[] = [];
+    let outerData: OverallSumOuterChartDataType[] = [];
     fmoeStatus.forEach((status, idxStatus) =>
-      fmoeCategory.forEach((cat, idxCategory) => {
+      fmoeCatgory.forEach((cat, idxCategory) => {
         outerData.push({
           status: status,
           category: cat + "-" + (idxStatus + 1) * (idxCategory + 1),
-          percent: chartData
+          percent: overallSumPercentData
             .filter((data) => data.status === status && data.category === cat)
             .reduce((sum, data) => sum + data.percent, 0),
         });
       })
     );
     outerChart.changeData(outerData);
-  }, [chartData]);
+  }, [chart, outerChart, overallSumPercentData]);
 
   return (
     <div className="overall-sum">
-      <button
-        onClick={() => setChartData(demodata)}
-        style={{ position: "absolute",zIndex:2 }}
-      >
-        set
-      </button>
-      <div className="overall-sum__chart">
-        <div id="overall-sumchart" />
+      <div className="overall-sum__wrapper">
+        <p>Overall of {product.name}</p>
+        <div className="overall-sum__chart">
+          <div id="overall-sumchart" />
+        </div>
       </div>
-      <div className="overall-sum__data"></div>
     </div>
   );
 };

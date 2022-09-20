@@ -14,6 +14,7 @@ const Home: NextPage = () => {
   return (
     <div className="main">
       <div className="link animate__bounceIn">
+        <Link href="/main">Center Dashboard</Link>
         <Link href="/lotqc">
           <a onMouseEnter={(e) => onEnter(e)} onMouseLeave={(e) => onLeave(e)}>
             DX Lot Quality Check

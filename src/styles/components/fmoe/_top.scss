@@ -1,0 +1,31 @@
+.top {
+  &-race {
+    height: 100%;
+    &__wrapper {
+      position: relative;
+      background-color: var(--color-3);
+      & > p {
+        font-size: 2rem;
+        font-weight: 600;
+        padding-left: 1rem;
+        position: absolute;
+        text-decoration: underline;
+      }
+    }
+    &__sorter {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      z-index: 2;
+      width: 200px;
+      .ant-select {
+        font-size: 1.8rem;
+        width: 100%;
+        &-selector {
+          display: block;
+          height: fit-content !important;
+        }
+      }
+    }
+  }
+}

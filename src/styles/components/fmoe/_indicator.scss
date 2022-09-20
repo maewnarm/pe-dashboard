@@ -1,0 +1,43 @@
+.indicator {
+  &-line {
+    height: 100%;
+    position: relative;
+    background-color: var(--color-3);
+    & > p {
+      font-size: 2rem;
+      font-weight: 600;
+      padding-left: 1rem;
+      position: absolute;
+      text-decoration: underline;
+    }
+    &__wrapper {
+      height: calc(100% - 50px);
+      width: 100%;
+      position: absolute;
+      top: 50px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      overflow-y: auto;
+      padding: 0 1rem 1rem 1rem;
+      &__element {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1rem;
+        border-radius: 1rem;
+        font-size: 2rem;
+        border: 1px solid var(--font-color-1);
+        transform: skewX(-5deg);
+        span {
+          margin-left: 1rem;
+          line-height: 2rem;
+          font-weight: 500;
+          color: var(--font-color-1);
+        }
+      }
+    }
+  }
+}

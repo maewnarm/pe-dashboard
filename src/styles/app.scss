@@ -1,5 +1,6 @@
 // abstracts
 @import "abstracts/variables";
+@import "abstracts/scrollbar";
 
 // base
 @import "base/common";
@@ -10,6 +11,7 @@
 // pages
 @import "pages/main";
 @import "pages/fmoe";
+@import "pages/maindashboard";
 
 // dependencies
-@import "antd/dist/antd.css"
+@import "antd/dist/antd.css";

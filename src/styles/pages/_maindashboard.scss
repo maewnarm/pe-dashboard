@@ -1,0 +1,56 @@
+.main-dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--color-4);
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    & > p {
+      font-size: 5rem;
+      line-height: 4rem;
+      font-weight: 700;
+      font-style: italic;
+      text-align: center;
+      color: var(--font-color-1);
+      margin-right: 3rem;
+    }
+    & > span {
+      font-size: 3rem;
+      margin-right: 1rem;
+    }
+    &__selector {
+      width: 300px;
+      margin-bottom: 1rem;
+      .ant-select {
+        font-size: 2rem;
+        width: 100%;
+        &-selector {
+          display: block;
+          height: fit-content !important;
+        }
+      }
+    }
+  }
+  &__main {
+    display: flex;
+    height: 100%;
+    gap: 0.5rem;
+    overflow-x: hidden;
+    &__organize {
+      display: flex;
+      width: 80%;
+      height: 100%;
+      overflow-y: auto;
+      background-color: var(--color-3);
+    }
+    &__menu {
+      display: flex;
+      width: 20%;
+      height: 100%;
+      background-color: var(--color-3);
+    }
+  }
+}

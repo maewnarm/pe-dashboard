@@ -1,0 +1,17 @@
+.history {
+  &-line {
+    height: 100%;
+    &__wrapper {
+      & > p {
+        position: absolute;
+        font-size: 2rem;
+        font-weight: 600;
+        padding-left: 1rem;
+        text-decoration: underline;
+      }
+    }
+    &__chart {
+      background-color: lightblue;
+    }
+  }
+}

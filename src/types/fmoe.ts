@@ -1,36 +1,65 @@
-export const fmoeStatus = ["In progress", "Done"];
-export const fmoeCategory = [
-  "Man",
-  "Machine",
-  "Method",
-  "Material",
-  "Measurement",
-  "Environment",
-];
-export const fmoeStatusColor: { [status: string]: string } = {
-  "In progress": "#F7A76C",
-  Done: "#59CE8F",
+export type OverallSumValueDataType = {
+  status: string;
+  category?: string;
+  sqcd?: string;
+  value: number;
 };
-export const fmoeCategoryColor: {[cat:string] : string} = {
-  "Man": "#367E18",
-  "Machine": "#967E76",
-  "Method": "#ECC5FB",
-  "Material": "#5F6F94",
-  "Measurement": "#704F4F",
-  "Environment": "#90B77D",
-}
 
-export type OverallSumDataType = {
+export type OverallSumPercentDataType = {
+  status: string;
+  category?: string;
+  sqcd?: string;
+  percent: number;
+};
+
+export type OverallSumOuterChartDataType = {
   status: string;
   category: string;
   percent: number;
 };
 
-export type InnerChartDaTaType = {
-  status: string
-  percent: number
-}
+export type OverallSumInnerChartDaTaType = {
+  status: string;
+  percent: number;
+};
 
 export type OverallLineDataType = {
+  date: string;
+  line: string;
+  value: number;
+};
 
+export type OverallSumTotalDataType = {
+  name: string;
+  value: number;
+};
+
+export type OverallSumTotalByCategoryDataType = {
+  [category: string]: {
+    [status: string]: number;
+  };
+};
+
+export type OverallSumTotalByCategoryChartDataType = {
+  status: string;
+  value: number;
+  percent: number;
+};
+
+export type LineDataType = {
+  text: string;
+  value: string;
+};
+
+export type TotalByLineDataType = {
+  line: string;
+  Total: number;
+  "In progress": number;
+  Done: number;
+};
+
+export type HistoryTotalByLineChartDataType = {
+  line: string
+  value: number
+  color: string
 }
