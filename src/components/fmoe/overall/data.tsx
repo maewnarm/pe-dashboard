@@ -89,6 +89,7 @@ const OverallData = () => {
             {fmoeSQCD.map((sqcd, idx) => (
               <SubCategoryChart
                 id={idx}
+                key={sqcd}
                 data={categoryData[sqcd]}
                 sqcd={sqcd}
               />

@@ -13,6 +13,7 @@ const DashboardMenu = () => {
         {DashboardMenuList.map((menu) => (
           <div
             className="dashboard-menu__item"
+            key={menu.text}
             onClick={() => router.push(menu.link)}
           >
             <span>{menu.text}</span>

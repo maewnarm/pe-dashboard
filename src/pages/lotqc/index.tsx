@@ -1,10 +1,11 @@
 import DropdownSelector from "@/components/selector/dropdown";
+import { DropdownType } from "@/types/common";
 import { OptionType } from "@/types/lotqc";
 import React, { createContext, useEffect, useMemo, useState } from "react";
 
 const defaultLotQcContext = {
-  product: "",
-  line: "",
+  product: {} as DropdownType,
+  line: {} as DropdownType,
   month: "",
 };
 
@@ -13,8 +14,8 @@ export const LotQCContext = createContext(defaultLotQcContext);
 const LotQualityCheck = () => {
   const [productList, setProductList] = useState<OptionType[]>([]);
   const [lineList, setlineList] = useState<OptionType[]>([]);
-  const [product, setProduct] = useState("");
-  const [line, setLine] = useState("");
+  const [product, setProduct] = useState<DropdownType>({ name: "", value: "" });
+  const [line, setLine] = useState<DropdownType>({ name: "", value: "" });
   const [month, setMonth] = useState("");
   const context = useMemo(
     () => ({
@@ -24,7 +25,7 @@ const LotQualityCheck = () => {
     }),
     [product, line, month]
   );
-  
+
   async function getProductList() {
     await fetch(`/api/json/get?filePath=json_product.json`).then(
       async (res) => {
@@ -46,11 +47,13 @@ const LotQualityCheck = () => {
           <DropdownSelector
             placeholder="Select product"
             options={productList}
+            value={product.value}
             set={setProduct}
           />
           <DropdownSelector
             placeholder="Select line"
             options={lineList}
+            value={line.value}
             set={setLine}
           />
         </div>
