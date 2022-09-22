@@ -2,43 +2,6 @@ import { OrganizeType } from "@/types/maindashboard";
 
 export const OrganizeByProduct: { [product: string]: OrganizeType } = {
   alt: {
-    part: [
-      {
-        name: "Alternator Assy",
-        pic: "/parts/alt-assy-2.png",
-        row: 3,
-      },
-      {
-        name: "Rotor assy",
-        pic: "/parts/alt-rotor-2.png",
-        row: 2,
-      },
-      {
-        name: "Slip ring assy",
-        pic: "/parts/alt-slipring-1.png",
-        row: 2,
-      },
-      {
-        name: "Stator assy",
-        pic: "/parts/alt-stator-1.png",
-        row: 4,
-      },
-      {
-        name: "Rectifier assy",
-        pic: "/parts/alt-rectifier-1.png",
-        row: 2,
-      },
-      {
-        name: "Frame Drive",
-        pic: "/parts/alt-framedr-1.png",
-        row: 1,
-      },
-      {
-        name: "Frame Rear",
-        pic: "/parts/alt-framerr-1.png",
-        row: 1,
-      },
-    ],
     assy: [
       {
         name: "Alternator Assy",
@@ -76,8 +39,45 @@ export const OrganizeByProduct: { [product: string]: OrganizeType } = {
       },
       {
         name: "Manager - Frame Drive,Rear",
-        pic: "/person/mgr.png",
+        pic: "/person/9.png",
         row: 2,
+      },
+    ],
+    part: [
+      {
+        name: "Alternator Assy",
+        pic: "/parts/alt-assy-2.png",
+        row: 3,
+      },
+      {
+        name: "Rotor assy",
+        pic: "/parts/alt-rotor-2.png",
+        row: 2,
+      },
+      {
+        name: "Slip ring assy",
+        pic: "/parts/alt-slipring-1.png",
+        row: 2,
+      },
+      {
+        name: "Stator assy",
+        pic: "/parts/alt-stator-1.png",
+        row: 4,
+      },
+      {
+        name: "Rectifier assy",
+        pic: "/parts/alt-rectifier-1.png",
+        row: 2,
+      },
+      {
+        name: "Frame Drive",
+        pic: "/parts/alt-framedr-1.png",
+        row: 1,
+      },
+      {
+        name: "Frame Rear",
+        pic: "/parts/alt-framerr-1.png",
+        row: 1,
       },
     ],
     tl: [
@@ -103,12 +103,12 @@ export const OrganizeByProduct: { [product: string]: OrganizeType } = {
       },
       {
         name: "TL - Rectifier assy",
-        pic: "/person/tl.png",
+        pic: "/person/4.png",
         row: 2,
       },
       {
         name: "TL - Frame Drive,Rear assy",
-        pic: "/person/tl.png",
+        pic: "/person/10.png",
         row: 2,
       },
     ],

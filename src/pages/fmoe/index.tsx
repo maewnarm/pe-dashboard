@@ -4,14 +4,13 @@ import OverallData from "@/components/fmoe/overall/data";
 import OverallSum from "@/components/fmoe/overall/sum";
 import RaceChart from "@/components/fmoe/top/race";
 import DropdownSelector from "@/components/selector/dropdown";
-import { DropdownType } from "@/types/common";
+import { DropdownType, OptionType } from "@/types/common";
 import {
   OverallLineDataType,
   OverallSumValueDataType,
   OverallSumPercentDataType,
   TotalByLineDataType,
 } from "@/types/fmoe";
-import { OptionType } from "@/types/lotqc";
 import { DatePicker, DatePickerProps } from "antd";
 import React, { useState, useEffect, useMemo, createContext } from "react";
 import {

@@ -37,6 +37,14 @@
           font-weight: 500;
           color: var(--font-color-1);
         }
+        &.in-progress {
+          background-color: var(--status-ng);
+          box-shadow: rgba(240, 46, 170, 0.4) -3px 3px, rgba(240, 46, 170, 0.3) -5px 5px;
+        }
+        &.done {
+          background-color: var(--status-ok);
+          box-shadow: rgba(107, 240, 46, 0.4) -3px 3px, rgba(107, 240, 46, 0.4) -5px 5px;
+        }
       }
     }
   }

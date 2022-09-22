@@ -42,10 +42,10 @@ const OrganizeChart = () => {
         {rowData.map((data, idxData) => {
           const role = data.role;
           const cls = role || "";
-          const size = role === "assy" || role === "fm" ? 180 : 70;
+          const size = role === "assy" || role === "fm" ? 250 : role === "mgr" ? 120: 100;
           return (
             <td key={idxData} rowSpan={data.row} className={cls}>
-              <div className="organize-table__cell">
+              <div className={`organize-table__cell ${role}`}>
                 <Image
                   height={size}
                   width={size}
@@ -54,7 +54,7 @@ const OrganizeChart = () => {
                   loading="eager"
                   layout="fixed"
                 />
-                <span>{data.name}</span>
+                <span className="label">{data.name}</span>
               </div>
             </td>
           );
@@ -74,10 +74,10 @@ const OrganizeChart = () => {
           <table>
             <thead>
               <tr>
-                <th>Sub Assy</th>
                 <th>Assy</th>
                 <th>Factory Manager (FM)</th>
                 <th>Manager (MGR)</th>
+                <th>Sub Assy</th>
                 <th>Team Leader (TL)</th>
               </tr>
             </thead>

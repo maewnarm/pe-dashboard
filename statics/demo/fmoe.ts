@@ -323,16 +323,18 @@ export const demoHistoryLineData = [
 ];
 
 export const demoHistoryTotalByLineData = [
-  {line:"Line 1",Total: 10,"In progress": 2,Done: 8},
-  {line:"Line 2",Total: 18,"In progress": 6,Done: 12},
-  {line:"Line 3",Total: 13,"In progress": 3,Done: 10},
-  {line:"Line 4",Total: 4,"In progress": 1,Done: 3},
-  {line:"Line 5",Total: 8,"In progress": 3,Done: 5},
-  {line:"Line 6",Total: 2,"In progress": 0,Done: 2},
-  {line:"Line 7",Total: 9,"In progress": 4,Done: 5},
-  {line:"Line 8",Total: 7,"In progress": 3,Done: 4},
-  {line:"Line 9",Total: 6,"In progress": 1,Done: 5},
-  {line:"Line 11",Total: 4,"In progress": 0,Done: 4},
-  {line:"Line 12",Total: 3,"In progress": 1,Done: 2},
-  {line:"Line 13",Total: 8,"In progress": 2,Done: 6}
+  {line:"alt-assy-2",Total: 10,"In progress": 2,Done: 8},
+  {line:"alt-assy-3",Total: 18,"In progress": 6,Done: 12},
+  {line:"alt-stator-1",Total: 13,"In progress": 3,Done: 10},
+  {line:"alt-stator-2",Total: 4,"In progress": 1,Done: 3},
+  {line:"alt-stator-3",Total: 8,"In progress": 3,Done: 5},
+  {line:"alt-stator-4",Total: 2,"In progress": 0,Done: 2},
+  {line:"alt-rotor-2",Total: 9,"In progress": 4,Done: 5},
+  {line:"alt-rotor-3",Total: 7,"In progress": 3,Done: 4},
+  {line:"alt-slipring-1",Total: 6,"In progress": 1,Done: 5},
+  {line:"alt-slipring-2",Total: 4,"In progress": 0,Done: 4},
+  {line:"alt-rectifier-1",Total: 3,"In progress": 1,Done: 2},
+  {line:"alt-rectifier-2",Total: 8,"In progress": 2,Done: 6},
+  {line:"alt-framedr-1",Total: 15,"In progress": 0,Done: 15},
+  {line:"alt-framerr-1",Total: 12,"In progress": 2,Done: 10}
 ]

@@ -1,9 +1,9 @@
-.history {
-  &-line {
+.lotqc-item {
+  &-data {
     height: 100%;
     &__wrapper {
+      height: 100%;
       & > p {
-        position: absolute;
         font-size: 2rem;
         font-weight: 600;
         padding-left: 1rem;
@@ -11,7 +11,8 @@
       }
     }
     &__chart {
-      background-color: var(--color-3);
+      &__wrapper {
+      }
     }
   }
 }

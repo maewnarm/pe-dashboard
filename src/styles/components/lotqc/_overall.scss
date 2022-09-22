@@ -1,0 +1,44 @@
+.lotqc-overall {
+  &-status {
+    height: 100%;
+    &__wrapper {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      & > p {
+        font-size: 2rem;
+        font-weight: 600;
+        padding-left: 1rem;
+        text-decoration: underline;
+      }
+    }
+    &__chart {
+      display: flex;
+    }
+  }
+}
+
+#lotqc-overall {
+  &-status {
+    &-legend {
+      font-size: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      gap: 1rem;
+      .legend-item {
+        &-marker {
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+        }
+        &-value {
+          font-weight: 600;
+        }
+        &-total {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}

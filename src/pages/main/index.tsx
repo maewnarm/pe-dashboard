@@ -1,8 +1,7 @@
 import DashboardMenu from "@/components/dashboard/menu";
 import OrganizeChart from "@/components/dashboard/oraganize";
 import DropdownSelector from "@/components/selector/dropdown";
-import { DropdownType } from "@/types/common";
-import { OptionType } from "@/types/lotqc";
+import { DropdownType,OptionType } from "@/types/common";
 import React, { useState, useMemo, createContext, useEffect } from "react";
 
 const defaultMainDashboardContext = {

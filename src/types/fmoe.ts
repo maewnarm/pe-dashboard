@@ -59,7 +59,15 @@ export type TotalByLineDataType = {
 };
 
 export type HistoryTotalByLineChartDataType = {
-  line: string
-  value: number
-  color: string
-}
+  line: string;
+  value: number;
+  color: string;
+};
+
+export type TotalDataByLineType = {
+  [line: string]: {
+    Total: number;
+    "In progress": number;
+    Done: number;
+  };
+};
