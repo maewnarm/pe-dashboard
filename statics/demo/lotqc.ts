@@ -1,4 +1,4 @@
-import { ItemChartDataType } from "@/types/lotqc";
+import { ItemChartType } from "@/types/lotqc";
 
 export const demoLotqcOverallChartData = [
   { category: "NG critical", value: 3, percent: 1 },
@@ -310,7 +310,7 @@ export const demoLotqcHistoryChartData = [
 ];
 
 
-export const demoLotqcItemChartData: ItemChartDataType[] = [
+export const demoLotqcItemChartData: ItemChartType[] = [
   {
     process: "process 1",
     part_no: "part no 1",
@@ -320,7 +320,82 @@ export const demoLotqcItemChartData: ItemChartDataType[] = [
       lower_limit: "0.35"
     },
     data: {
-
+      "1" : {
+        "1": "0.38",
+        "2": "0.36",
+        "3": "0.37",
+        "4": "0.39",
+      },
+      "2" : {
+        "1": "0.36",
+        "2": "0.38",
+        "3": "0.41",
+        "4": "0.40",
+      },
+      "3" : {
+        "1": "0.38",
+        "2": "0.43",
+        "3": "0.36",
+        "4": "0.42",
+      },
+    }
+  },
+  {
+    process: "process 2",
+    part_no: "part no 2",
+    parameter: "parameter 2",
+    limit: {
+      upper_limit: "0.45",
+      lower_limit: "0.35"
+    },
+    data: {
+      "1" : {
+        "1": "0.38",
+        "2": "0.36",
+        "3": "0.37",
+        "4": "0.39",
+      },
+      "2" : {
+        "1": "0.36",
+        "2": "0.38",
+        "3": "0.41",
+        "4": "0.40",
+      },
+      "3" : {
+        "1": "0.38",
+        "2": "0.43",
+        "3": "0.36",
+        "4": "0.42",
+      },
+    }
+  },
+  {
+    process: "process 3",
+    part_no: "part no 3",
+    parameter: "parameter 3",
+    limit: {
+      upper_limit: "0.45",
+      lower_limit: "0.35"
+    },
+    data: {
+      "1" : {
+        "1": "0.38",
+        "2": "0.36",
+        "3": "0.37",
+        "4": "0.39",
+      },
+      "2" : {
+        "1": "0.36",
+        "2": "0.38",
+        "3": "0.41",
+        "4": "0.40",
+      },
+      "3" : {
+        "1": "0.38",
+        "2": "0.43",
+        "3": "0.36",
+        "4": "0.42",
+      },
     }
   }
 ]

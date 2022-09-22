@@ -2,10 +2,15 @@ import LotqcOverallChart from "@/components/lotqc/overall/status";
 import LotqcHistoryChart from "@/components/lotqc/overall/history";
 import DropdownSelector from "@/components/selector/dropdown";
 import { DropdownType, OptionType } from "@/types/common";
-import { HistoryChartDataType, OverallChartDataType } from "@/types/lotqc";
+import {
+  HistoryChartDataType,
+  ItemChartType,
+  OverallChartDataType,
+} from "@/types/lotqc";
 import React, { createContext, useEffect, useMemo, useState } from "react";
 import {
   demoLotqcHistoryChartData,
+  demoLotqcItemChartData,
   demoLotqcOverallChartData,
 } from "statics/demo/lotqc";
 import LotqcItemData from "@/components/lotqc/item/data";
@@ -16,6 +21,7 @@ const defaultLotQcContext = {
   month: "",
   overallChartData: [] as OverallChartDataType[],
   historyChartData: [] as HistoryChartDataType[],
+  itemChartData: [] as ItemChartType[],
 };
 
 export const LotQCContext = createContext(defaultLotQcContext);
@@ -32,6 +38,7 @@ const LotQualityCheck = () => {
   const [historyChartData, setHistoryChartData] = useState<
     HistoryChartDataType[]
   >([]);
+  const [itemChartData, setItemChartData] = useState<ItemChartType[]>([]);
   const context = useMemo(
     () => ({
       product: product,
@@ -39,8 +46,9 @@ const LotQualityCheck = () => {
       month: month,
       overallChartData: overallChartData,
       historyChartData: historyChartData,
+      itemChartData: itemChartData,
     }),
-    [product, line, month, overallChartData]
+    [product, line, month, overallChartData, historyChartData, itemChartData]
   );
 
   async function getProductList() {
@@ -76,6 +84,7 @@ const LotQualityCheck = () => {
 
     setOverallChartData(demoLotqcOverallChartData);
     setHistoryChartData(demoLotqcHistoryChartData);
+    setItemChartData(demoLotqcItemChartData);
   }, [line]);
 
   return (

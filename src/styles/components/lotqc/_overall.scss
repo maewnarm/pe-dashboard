@@ -42,3 +42,15 @@
     }
   }
 }
+
+.lotqc-history {
+  &__wrapper {
+    height: 100%;
+    & > p {
+      font-size: 2rem;
+      font-weight: 600;
+      padding-left: 1rem;
+      text-decoration: underline;
+    }
+  }
+}
